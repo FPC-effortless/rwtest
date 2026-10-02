@@ -1,13 +1,16 @@
 name = "rwtest"
 version = "0.1.0"
-
-[leanOptions]
-pp.unicode.fun = true
+keywords = ["math"]
 
 [[require]]
-name = "mathlib"
 scope = "leanprover-community"
+name = "mathlib"
+rev = "v4.14.0"
 
 [[lean_lib]]
 name = "Test"
-glob = "Test/AutoClose.lean"
+srcDir = "."
+globs = ["Test.*"]
+
+[lean]
+version = "leanprover/lean4:v4.14.0"
