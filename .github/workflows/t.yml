@@ -1,0 +1,18 @@
+name: T
+on: [push, workflow_dispatch]
+jobs:
+  b:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: resolve
+        run: lake update
+      - name: build
+        run: |
+          set -o pipefail
+          lake build 'Test' 2>&1 | tee build.log
+          exit ${PIPESTATUS[0]}

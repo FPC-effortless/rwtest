@@ -1,0 +1,13 @@
+name = "rwtest"
+version = "0.1.0"
+
+[leanOptions]
+pp.unicode.fun = true
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "Test"
+roots = ["AutoClose"]
