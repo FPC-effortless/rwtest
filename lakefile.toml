@@ -10,4 +10,4 @@ scope = "leanprover-community"
 
 [[lean_lib]]
 name = "Test"
-roots = ["AutoClose"]
+glob = "AutoClose.lean"
